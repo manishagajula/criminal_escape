@@ -1,196 +1,7 @@
-// import React, { useState } from "react";
-
-// export const CitySelection = () => {
-//   const [selectedCity, setSelectedCity] = useState("");
-
-//   const handleCityChange = (e) => {
-//     setSelectedCity(e.target.value);
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Handle form submission, e.g., send selectedCity to backend
-//     console.log("Selected city:", selectedCity);
-//   };
-
-//   return (
-//     <div>
-//       <h2>City Selection</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Select a city:
-//           <select value={selectedCity} onChange={handleCityChange}>
-//             <option value="">Select</option>
-//             <option value="Yapkashnagar">Yapkashnagar</option>
-//             <option value="Lihaspur">Lihaspur</option>
-//             <option value="Narmis City">Narmis City</option>
-//             <option value="Shekharvati">Shekharvati</option>
-//             <option value="Nuravgram">Nuravgram</option>
-//           </select>
-//         </label>
-//         <button type="submit">Submit</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// import React, { useState } from "react";
-
-// export const CitySelection = ({ cop }) => {
-//   const [selectedCity, setSelectedCity] = useState("");
-//   const [capturingCop, setCapturingCop] = useState("");
-//   const [captureStatus, setCaptureStatus] = useState("");
-
-//   const handleCitySelection = () => {
-//     // Simulate fugitive's location
-//     const fugitiveLocation = "Nuravgram";
-
-//     // City distances
-//     const cityDistances = {
-//       Yapkashnagar: 60,
-//       Lihaspur: 50,
-//       NarmisCity: 40,
-//       Shekharvati: 30,
-//       Nuravgram: 20,
-//     };
-
-//     // Determine distance between selected city and fugitive's location
-//     const distanceToTarget = cityDistances[selectedCity];
-//     // Select suitable electric vehicle based on distance
-//     const captureSuccess = distanceToTarget <= 120; // Assuming maximum range of EV SUV is 120 KM
-
-//     let captureStatus = captureSuccess ? "Captured" : "Not captured";
-
-//     setCaptureStatus(captureStatus);
-//     setCapturingCop(captureSuccess ? cop : ""); // Set capturing cop's name if capture was successful
-//   };
-
-//   return (
-//     <div>
-//       <h2>City Selection for Cop {cop}</h2>
-//       <select
-//         value={selectedCity}
-//         onChange={(e) => setSelectedCity(e.target.value)}
-//       >
-//         <option value="">Select City</option>
-//         <option value="Yapkashnagar">Yapkashnagar</option>
-//         <option value="Lihaspur">Lihaspur</option>
-//         <option value="Narmis City">Narmis City</option>
-//         <option value="Shekharvati">Shekharvati</option>
-//         <option value="Nuravgram">Nuravgram</option>
-//       </select>
-//       <input
-//         type="text"
-//         value={capturingCop}
-//         placeholder="Capturing Cop's Name"
-//         onChange={(e) => setCapturingCop(e.target.value)}
-//       />
-//       <button onClick={handleCitySelection}>Capture</button>
-//       <p>Capture Status: {captureStatus}</p>
-//       {captureStatus === "Captured" && (
-//         <p>Capturing Cop's Name: {capturingCop}</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// import React, { useState } from "react";
-// import ResultPage from "./ResultPage"; // Import the ResultPage component
-
-// export const CitySelection = ({ cop }) => {
-//   const [selectedCity, setSelectedCity] = useState("");
-//   const [capturingCop, setCapturingCop] = useState("");
-//   const [captureStatus, setCaptureStatus] = useState("");
-
-//   const handleCitySelection = () => {
-//     // Simulate fugitive's location
-//     const fugitiveLocation = "Nuravgram";
-
-//     // City distances
-//     const cityDistances = {
-//       Yapkashnagar: 60,
-//       Lihaspur: 50,
-//       NarmisCity: 40,
-//       Shekharvati: 30,
-//       Nuravgram: 20,
-//     };
-
-//     // Determine distance between selected city and fugitive's location
-//     const distanceToTarget = cityDistances[selectedCity];
-//     // Select suitable electric vehicle based on distance
-//     const captureSuccess = distanceToTarget <= 120; // Assuming maximum range of EV SUV is 120 KM
-
-//     let captureStatus = captureSuccess ? "Captured" : "Not captured";
-
-//     setCaptureStatus(captureStatus);
-//     setCapturingCop(captureSuccess ? cop : ""); // Set capturing cop's name if capture was successful
-//   };
-
-//   return (
-//     <div>
-//       <h2>City Selection for Cop {cop}</h2>
-//       <select
-//         value={selectedCity}
-//         onChange={(e) => setSelectedCity(e.target.value)}
-//       >
-//         <option value="">Select City</option>
-//         <option value="Yapkashnagar">Yapkashnagar</option>
-//         <option value="Lihaspur">Lihaspur</option>
-//         <option value="Narmis City">Narmis City</option>
-//         <option value="Shekharvati">Shekharvati</option>
-//         <option value="Nuravgram">Nuravgram</option>
-//       </select>
-//       <input
-//         type="text"
-//         value={capturingCop}
-//         placeholder="Capturing Cop's Name"
-//         onChange={(e) => setCapturingCop(e.target.value)}
-//       />
-//       <button onClick={handleCitySelection}>Capture</button>
-//       {captureStatus && (
-//         <ResultPage captureStatus={captureStatus} capturingCop={capturingCop} />
-//       )}
-//     </div>
-//   );
-// };
-
-// import React, { useState } from "react";
-// import VehicleSelection from "./VehicleSelection";
-
-// export const CitySelection = ({ cop, onCapture }) => {
-//   const [selectedCity, setSelectedCity] = useState("");
-
-//   const handleCitySelection = () => {
-//     // Simulate the location of the fugitive
-//     const fugitiveLocation = "Nuravgram";
-
-//     // City distances
-//     const cityDistances = {
-//       Yapkashnagar: 60,
-//       Lihaspur: 50,
-//       NarmisCity: 40,
-//       Shekharvati: 30,
-//       Nuravgram: 20,
-//     };
-
-//     // Determine distance between selected city and fugitive's location
-//     const distanceToTarget = cityDistances[selectedCity];
-//     // Simulate capture success if distance is less than or equal to 20 KM
-//     const captureSuccess = distanceToTarget <= 20;
-
-//     // Call the onCapture callback function with capture status and cop's name
-//     onCapture(captureSuccess ? cop : null);
-//   };
-
-//   const submitForm = () => {};
-
 import React, { useState, useReducer } from "react";
 import { dataConstants } from "../constants/data_constants";
 import { dataReducer, initialData } from "../reducer/data_reducer";
 import axios from "axios";
-
-// import { VehicleSelection } from "./VehicleSelection";
-// import { StartPage } from "./StartPage";
 
 export const CitySelection = () => {
   const [cop1City, setCop1City] = useState("Yapkashnagar");
@@ -281,40 +92,34 @@ export const CitySelection = () => {
     },
   ];
 
-  // Function to get available cities for Cop 1
   function getCitiesForCop1() {
     return cities.filter(
       (city) => city.name !== cop2City && city.name !== cop3City
     );
   }
 
-  // Function to get available cities for Cop 2
   function getCitiesForCop2() {
     return cities.filter(
       (city) => city.name !== cop1City && city.name !== cop3City
     );
   }
 
-  // Function to get available cities for Cop 3
   function getCitiesForCop3() {
     return cities.filter(
       (city) => city.name !== cop1City && city.name !== cop2City
     );
   }
 
-  // Handler for Cop 1 city selection
   const handleCop1CitySelection = (e) => {
     const selectedCity = e.target.value;
     setCop1City(selectedCity);
   };
 
-  // Handler for Cop 2 city selection
   const handleCop2CitySelection = (e) => {
     const selectedCity = e.target.value;
     setCop2City(selectedCity);
   };
 
-  // Handler for Cop 3 city selection
   const handleCop3CitySelection = (e) => {
     const selectedCity = e.target.value;
     setCop3City(selectedCity);
@@ -326,14 +131,12 @@ export const CitySelection = () => {
     );
   }
 
-  // Function to get available cities for Cop 2
   function getVehicleForCop2() {
     return vehicles.filter(
       (vehicle) => vehicle.kind !== cop1Vehicle && vehicle.kind !== cop3Vehicle
     );
   }
 
-  // Function to get available cities for Cop 3
   function getVehicleForCop3() {
     return vehicles.filter(
       (vehicle) => vehicle.kind !== cop1Vehicle && vehicle.kind !== cop2Vehicle
@@ -345,13 +148,11 @@ export const CitySelection = () => {
     setCop1Vehicle(selectedVehicle);
   };
 
-  // Handler for Cop 2 vehicle selection
   const handleCop2VehicleSelection = (e) => {
     const selectedVehicle = e.target.value;
     setCop2Vehicle(selectedVehicle);
   };
 
-  // Handler for Cop 3 vehicle selection
   const handleCop3VehicleSelection = (e) => {
     const selectedVehicle = e.target.value;
     setCop3Vehicle(selectedVehicle);
@@ -386,9 +187,16 @@ export const CitySelection = () => {
       <h1 className="font-bold text-3xl text-white text-center p-4 mt-4 rounded-md backdrop-blur bg-white/30">
         Welcome to GamePlay!
       </h1>
-      <form action="">
-        <div className="flex flex-row items-center justify-between pt-10 pb-10">
-          <div className="flex flex-col pl-10 items-center">
+      <form action="" className="w-full">
+        <div
+          className="flex flex-row items-center justify-between p-10"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gap: "32px",
+          }}
+        >
+          <div className="flex flex-col  items-center">
             <div className="flex items-center">
               <h2 className="font-bold text-2xl p-4 mb-4 text-white rounded-md backdrop-blur bg-white/30">
                 City Selection for Cop 1
@@ -456,7 +264,7 @@ export const CitySelection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center pr-10">
+          <div className="flex flex-col items-center ">
             <div>
               <h2 className="font-bold text-2xl text-white p-4 mb-4 rounded-md backdrop-blur bg-white/30">
                 City Selection for Cop 3
@@ -490,9 +298,17 @@ export const CitySelection = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row items-center justify-center gap-10 pt-10 pr-10 pl-10">
+
+        <div
+          className="flex flex-row items-center justify-center gap-10 p-10"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gap: "32px",
+          }}
+        >
           <div className="flex flex-col justify-center">
-            <div className="flex items-center">
+            <div>
               <h2 className="font-bold text-2xl p-4 mb-4 text-white rounded-md backdrop-blur bg-white/30">
                 Vehicle Selection for Cop 1
               </h2>
@@ -524,6 +340,7 @@ export const CitySelection = () => {
               </select>
             </div>
           </div>
+
           <div>
             <div>
               <h2 className="font-bold text-2xl p-4 mb-4 text-white rounded-md backdrop-blur bg-white/30">
@@ -557,6 +374,7 @@ export const CitySelection = () => {
               </select>
             </div>
           </div>
+
           <div>
             <div>
               <h2 className="font-bold text-2xl p-4 mb-4 text-white rounded-md backdrop-blur bg-white/30">
@@ -591,7 +409,12 @@ export const CitySelection = () => {
             </div>
           </div>
         </div>
-        <div className="mt-10">
+
+        <div className="">
+          <p className="font-bold text-3xl p-4 mb-4 text-white rounded-md">
+            {" "}
+            Let's play
+          </p>
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -602,10 +425,7 @@ export const CitySelection = () => {
             Start
           </button>
         </div>
-        {/* <button type="submit">Capture</button> */}
-        {/* <StartPage /> */}
       </form>
-      {/* <div>{getData.finalData}</div> */}
       <div>
         {typeof getData.finalData === "object" ? (
           Object.values(getData.finalData).map((value, index) => (
@@ -620,5 +440,3 @@ export const CitySelection = () => {
     </div>
   );
 };
-
-// export default CitySelection;
